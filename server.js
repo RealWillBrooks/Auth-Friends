@@ -3,8 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const port = 5000;
 const app = express();
-const token =
-  'esfeyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NUIhkufemQifQ';
+const token ='esfeyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NUIhkufemQifQ';
 
 let nextId = 7;
 
@@ -70,7 +69,7 @@ app.post('/api/login', (req, res) => {
   } else {
     res
       .status(403)
-      .json({ error: 'Username or Password incorrect. Please see Readme' });
+      .json({ error: "wrong password or id" });
   }
 });
 
@@ -126,7 +125,7 @@ app.delete('/api/friends/:id', authenticator, (req, res) => {
 });
 
 function getNextId() {
-  return nextId++;
+  return nextId + 1;
 }
 
 app.listen(port, () => {
